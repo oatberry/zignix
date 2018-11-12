@@ -2,7 +2,7 @@ const mem = @import("mem.zig");
 
 var row = usize(0);
 var column = usize(0);
-var color = vga_entry_color(VgaColor.light_grey, VgaColor.black);
+var color = vga_entry_color(VgaColor.light_green, VgaColor.black);
 
 const VGA_WIDTH = 80;
 const VGA_HEIGHT = 25;

@@ -28,17 +28,8 @@ export nakedcc fn _start() noreturn {
 
 fn kmain() void {
     terminal.initialize();
-    terminal.write("hellOS 0.1.0\n\n");
-    var i = u8(0);
-    while (true) {
-        terminal.putchar(i);
-        terminal.write(" Hello, world!\n");
-        if (i == 255) {
-            i = 0;
-        } else {
-            i += 1;
-        }
-    }
+    terminal.write("zignix 0.1.0\n\n");
+    terminal.write("hello, world!");
 }
 
 pub fn panic(msg: []const u8, error_return_trace: ?*builtin.StackTrace) noreturn {

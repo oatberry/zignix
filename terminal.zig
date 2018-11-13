@@ -74,7 +74,7 @@ pub fn write(data: []const u8) void {
     for (data) |c| putchar(c);
 }
 
-const VgaColor = enum(u8).{
+const VgaColor = enum(u8) {
     black = 0,
     blue = 1,
     green = 2,

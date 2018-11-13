@@ -1,7 +1,7 @@
 const builtin = @import("builtin");
 const terminal = @import("terminal.zig");
 
-const MultiBoot = packed struct.{
+const MultiBoot = packed struct {
     magic: c_long,
     flags: c_long,
     checksum: c_long,
@@ -12,7 +12,7 @@ const MEMINFO = 1 << 1;
 const MAGIC = 0x1BADB002;
 const FLAGS = ALIGN | MEMINFO;
 
-export var multiboot align(4) section(".multiboot") = MultiBoot.{
+export var multiboot align(4) section(".multiboot") = MultiBoot {
     .magic = MAGIC,
     .flags = FLAGS,
     .checksum = -(MAGIC + FLAGS),

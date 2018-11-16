@@ -1,5 +1,6 @@
 const builtin = @import("builtin");
-const terminal = @import("terminal.zig");
+const std = @import("std/index.zig");
+const terminal = std.terminal;
 
 const MultiBoot = packed struct {
     magic: c_long,
@@ -29,7 +30,7 @@ export nakedcc fn _start() noreturn {
 fn kmain() void {
     terminal.initialize();
     terminal.write("zignix 0.1.0\n\n");
-    terminal.write("hello, world!");
+    terminal.write("hello, world!\n");
 }
 
 pub fn panic(msg: []const u8, error_return_trace: ?*builtin.StackTrace) noreturn {

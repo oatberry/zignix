@@ -12,7 +12,7 @@ all: $(OUT)
 clean:
 	rm -f $(OUT)
 
-$(OUT): $(IN) $(LINKSCRIPT) std
+$(OUT): $(IN) $(LINKSCRIPT) lib
 	$(ZIG) build-exe $(IN) $(ZIGFLAGS) --linker-script $(LINKSCRIPT) --output $(OUT)
 
 run: $(OUT)

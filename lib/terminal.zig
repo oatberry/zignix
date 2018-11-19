@@ -1,5 +1,6 @@
 const mem = @import("mem.zig");
 const vga = @import("vga.zig");
+const fmt = @import("std").fmt;
 
 var row = usize(0);
 var column = usize(0);
@@ -68,6 +69,16 @@ pub fn putchar(c: u8) void {
     }
 }
 
-pub fn write(data: []const u8) void {
+pub fn print(data: []const u8) void {
     for (data) |c| putchar(c);
 }
+
+const Errors = error {};
+pub fn printf(comptime format: []const u8, args: ...) void {
+    _ = fmt.format({}, Errors, printfHelper, format, args);
+}
+
+fn printfHelper(context: void, string: []const u8) Errors!void {
+    print(string);
+}
+

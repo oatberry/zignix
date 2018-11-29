@@ -13,13 +13,13 @@ const MEMINFO = 1 << 1;
 const MAGIC = 0x1BADB002;
 const FLAGS = ALIGN | MEMINFO;
 
-export var multiboot align(4) section(".multiboot") = MultiBoot {
+export var multiboot align(4) linksection(".multiboot") = MultiBoot {
     .magic = MAGIC,
     .flags = FLAGS,
     .checksum = -(MAGIC + FLAGS),
 };
 
-export var stack_bytes: [16 * 1024]u8 align(16) section(".bss") = undefined;
+export var stack_bytes: [16 * 1024]u8 align(16) linksection(".bss") = undefined;
 const stack_bytes_slice = stack_bytes[0..];
 
 export nakedcc fn _start() noreturn {
